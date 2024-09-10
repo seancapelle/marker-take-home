@@ -1,9 +1,14 @@
 .sidebar-container {
+    background-color: #e2e2e2;
     display: flex;
     flex-direction: column;
 }
 
-.sidebar-container-header {
+.sidebar-container-inner {
+    background-color: white;
+}
+
+.sidebar-container-inner-header {
     display: flex;
     font-weight: 500;
     padding: 20px;

@@ -1,73 +1,24 @@
-# Backend API for Frontend Take-Home Project
+To run:
 
-This is a simple backend API built using **NestJS** and **SQLite**. It is designed to provide the necessary endpoints for the frontend take-home project. The backend serves a list of markers, each with latitude, longitude, and other details, and requires a **Bearer token** for API access.
+Start the backend
+1. Open one terminal and navigate to the root directory
+2. Type npm run start
+3. The server will run on port 3000
 
-The backend includes:
-- **Basic CRUD operations** for the `Marker` entity.
-- **Bearer token authentication** for secure API access using a hardcoded token.
-- **SQLite** as the database for lightweight storage.
-- Automatic management of `createdDate` and `lastUpdated` timestamps.
+Start the frontend
+1. Open another terminal and navigate to /frontend directory
+2. Type npm start
+3. The server will run on port 8000
+4. Navigate to http://localhost:8000/
 
-## Purpose
-This backend API is meant to be used as a companion service for the frontend take-home project. Candidates working on the frontend project will interact with this API to fetch and manage marker data for their map-based application.
+This is a simple web app that uses Google Maps to display certain location markers that are retrieved from the backend, using Nest and SQLite.
+Clicking a marker's title in the left column should center the map to that marker, but that functionality is not present as is. I was able to pipe the selected marker's data into the Map component but could not get it to re-render with the new data coords.
 
-## Features
-- **API Key Authentication:** All routes are protected by a Bearer token, which must be provided in the `Authorization` header.
-- **Marker Management:** Allows fetching, creating, and updating marker data, including geolocation (latitude and longitude).
-- **Timestamps:** Each marker has automatically managed `createdDate` and `lastUpdated` fields.
-- **SQLite Database:** The API uses an SQLite database, which is file-based and easy to reset or share.
+Another sticking point was accessing the API key for the Authorization token. I found that I had to install @nestjs/config to access the .env file.
 
-## Prerequisites
-- **Node.js** (version 14.x or higher)
-- **NestJS** (This project uses NestJS, a framework for building efficient, reliable, and scalable server-side applications.)
+I used TypeScript to enforce the props going into the components and also used FontAwesome for icons.
 
-## Getting Started
+This was a fun project to implement and I thank you for the opportunity to demonstrate my React development skills. Thank you for your consideration.
 
-### 1. Unzip the Project
+Sean Capelle
 
-Unzip the provided **zip file** and navigate into the project directory:
-
-```bash
-unzip backend-take-home-api.zip
-cd backend-take-home-api
-```
-
-### 2. Install Dependencies
-```npm install```
-
-### 3. Start the Server
-```npm run start```
-The API will be available at http://localhost:3000.
-
-### 4. API Endpoints
-The API provides the following endpoints:
-- **GET /markers:** Fetch all markers.
-- **GET /markers/:id:** Fetch a single marker by ID.
-- **POST /markers:** Create a new marker.
-- **PUT /markers/:id:** Update an existing marker.
-- **DELETE /markers/:id:** Delete a marker by ID.
-- **Example POST and PUT Request Body:**
-    ```json
-    {
-      "title": "San Francisco",
-      "description": "A beautiful city by the bay.", // Optional
-      "latitude": 37.7749,
-      "longitude": -122.4194,
-      "hasVideo": true, // Optional,
-      "hasAttachment": true // Optional
-    }
-    ```
-- **Example Marker Response Body:**
-- ```json
-    {
-      "id": 1,
-      "title": "San Francisco",
-      "description": "A beautiful city by the bay.",
-      "latitude": 37.7749,
-      "longitude": -122.4194,
-      "hasVideo": true,
-      "hasAttachment": true,
-      "createdDate": "2021-10-10T00:00:00.000Z",
-      "lastUpdated": "2021-10-10T00:00:00.000Z"
-    }
-    ```

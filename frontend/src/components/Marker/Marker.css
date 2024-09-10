@@ -1,9 +1,31 @@
 .marker-container {
+    align-items: center;
+    border-bottom: 1px solid #e2e2e2;
+    border-left: 4px solid transparent;
     display: flex;
     padding: 20px;
+}
+
+.marker-container-icon {
+    cursor: pointer;
+}
+
+.marker-container-icons {
+    display: flex;
+    flex-direction: column;
 }
 
 .marker-container-flag {
     color: blue;
     margin-right: 20px;
+}
+
+.marker-container-title {
+    cursor: pointer;
+    flex: 1;
+    text-align: start;
+}
+
+.selected-marker {
+    border-left: 4px solid orange;
 }
