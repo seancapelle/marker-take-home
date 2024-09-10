@@ -1,0 +1,9 @@
+.marker-container {
+    display: flex;
+    padding: 20px;
+}
+
+.marker-container-flag {
+    color: blue;
+    margin-right: 20px;
+}

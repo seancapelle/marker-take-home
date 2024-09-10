@@ -1,0 +1,10 @@
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-container-header {
+    display: flex;
+    font-weight: 500;
+    padding: 20px;
+}
