@@ -3,6 +3,7 @@ import { MapData } from 'marker-project';
 import MapView from './components/MapView/MapView';
 import Sidebar from './components/Sidebar/Sidebar';
 import './App.css';
+import { APIProvider, Map, } from '@vis.gl/react-google-maps';
 
 function App() {
 	const [data, setData] = useState<MapData[] | undefined>(undefined);
@@ -33,7 +34,17 @@ function App() {
 	return (
 		<div className="App">
 			<Sidebar data={ data } onMarkerSelected={ handleMarkerSelect }/>
-			<MapView data={ data } selectedMarker={ selectedMarker }/>
+			<APIProvider apiKey={ process.env.REACT_APP_MAPS_API_KEY }>
+				<Map
+					style={{width: '100vw', height: '100vh'}}
+					defaultCenter={{ lat: 29.064447421802896, lng: -81.78543250582018 }}
+					defaultZoom={10}
+					gestureHandling={'greedy'}
+					disableDefaultUI={true}
+				>
+				</Map>
+				<MapView data={ data } selectedMarker={ selectedMarker }/>
+			</APIProvider>
 		</div>
 	);
 }
